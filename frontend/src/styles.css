@@ -1,0 +1,88 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1c302e;
+  background: #f4f7f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #1c302e;
+  --muted: #647571;
+  --line: #dce5e1;
+  --paper: #ffffff;
+  --green: #176b58;
+  --green-dark: #105343;
+  --green-soft: #eaf4ef;
+  --warning: #a33b32;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+
+.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.topbar { height: 64px; padding: 0 clamp(20px, 5vw, 72px); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: var(--paper); }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 720; text-decoration: none; letter-spacing: -0.02em; }
+.brand-mark { width: 27px; height: 27px; display: grid; place-items: center; border-radius: 7px; background: var(--green); color: white; font-size: 23px; line-height: 1; font-weight: 400; }
+.topbar-note { color: var(--muted); font-size: 13px; }
+.search-page { width: min(100% - 40px, 900px); margin: 0 auto; flex: 1; padding: clamp(44px, 8vh, 82px) 0 64px; }
+.page-heading { margin-bottom: 30px; }
+.eyebrow { margin: 0 0 12px; color: var(--green); font-size: 11px; font-weight: 750; letter-spacing: .13em; }
+.page-title { margin: 0; font-size: clamp(32px, 5vw, 42px); line-height: 1.12; letter-spacing: -.045em; color: var(--ink); }
+.intro-copy { margin: 12px 0 0; color: var(--muted); font-size: 16px; line-height: 1.55; }
+.search-form { padding: 21px; background: var(--paper); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 5px 18px rgb(21 55 44 / 4%); }
+.search-label { display: block; margin-bottom: 10px; color: var(--ink); font-size: 13px; font-weight: 700; }
+.search-controls { display: flex; gap: 10px; }
+.search-input-wrap { position: relative; flex: 1; min-width: 0; }
+.search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-54%); color: #71817c; font-size: 23px; pointer-events: none; }
+.search-input-wrap input { width: 100%; height: 48px; padding: 0 14px 0 42px; border: 1px solid #cbd8d2; border-radius: 6px; background: white; color: var(--ink); outline: none; }
+.search-input-wrap input::placeholder { color: #899691; }
+.search-input-wrap input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgb(23 107 88 / 12%); }
+.search-input-wrap input[aria-invalid="true"] { border-color: var(--warning); }
+.search-button { min-width: 112px; height: 48px; border: 0; border-radius: 6px; background: var(--green); color: white; padding: 0 20px; font-weight: 700; cursor: pointer; transition: background .15s ease; }
+.search-button:hover:not(:disabled) { background: var(--green-dark); }
+.search-button:focus-visible { outline: 3px solid #8cc4b1; outline-offset: 2px; }
+.search-button:disabled { opacity: .62; cursor: wait; }
+.search-hint, .validation-message { margin: 10px 0 0; font-size: 12px; line-height: 1.5; }
+.search-hint { color: var(--muted); }
+.validation-message { color: var(--warning); font-weight: 600; }
+.results-section { margin-top: 30px; }
+.initial-prompt, .status-message { color: var(--muted); font-size: 14px; }
+.status-message { padding: 18px 0; }
+.error-message { padding: 16px 18px; border: 1px solid #e9c9c5; border-left: 4px solid var(--warning); border-radius: 6px; background: #fff8f7; color: #762c26; }
+.error-message p { margin: 5px 0 0; line-height: 1.5; }
+.results-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; margin-bottom: 14px; }
+.results-heading h2 { margin: 0; font-size: 18px; letter-spacing: -.02em; }
+.results-heading p { margin: 0; color: var(--muted); font-size: 13px; }
+.doctor-list { display: grid; gap: 12px; }
+.doctor-card { padding: 19px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); }
+.doctor-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.doctor-name { margin: 0; font-size: 17px; line-height: 1.4; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.doctor-speciality { margin: 3px 0 0; color: var(--green); font-size: 13px; font-weight: 700; }
+.experience-badge { flex: 0 0 auto; padding: 6px 9px; border-radius: 4px; background: var(--green-soft); color: #285d4d; font-size: 11px; font-weight: 700; }
+.doctor-details { margin: 14px 0; color: #4f625d; font-size: 14px; line-height: 1.6; }
+.doctor-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 0; padding-top: 13px; border-top: 1px solid #edf1ef; }
+.doctor-meta dt { margin-bottom: 4px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.doctor-meta dd { margin: 0; color: var(--ink); font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.empty-state { padding: 36px 20px; border: 1px dashed #cbd8d2; border-radius: 8px; background: #fbfdfc; text-align: center; }
+.empty-icon { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--green-soft); color: var(--green); font-size: 24px; }
+.empty-state h2 { margin: 12px 0 5px; font-size: 18px; }
+.empty-state p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.empty-state .empty-suggestion { margin-top: 8px; }
+.site-footer { padding: 18px 20px; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: 12px; }
+
+@media (max-width: 560px) {
+  .topbar { height: 58px; padding: 0 18px; }
+  .topbar-note { font-size: 11px; }
+  .search-page { width: min(100% - 32px, 900px); padding-top: 42px; }
+  .search-form { padding: 16px; }
+  .search-controls { flex-direction: column; }
+  .search-button { width: 100%; }
+  .doctor-card { padding: 16px; }
+  .doctor-card-header { flex-direction: column; gap: 9px; }
+  .experience-badge { align-self: flex-start; }
+  .doctor-meta { grid-template-columns: 1fr; gap: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
